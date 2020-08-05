@@ -1,0 +1,95 @@
+<html>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"></head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<title>Demo5</title>
+
+</head>
+<body style="text-align: center">
+
+<!--<form action="/upload" method="post" enctype="multipart/form-data">-->
+<!--    <input type="text" name="username" placeholder="Nhap username...">-->
+<!--    <input type="password" name="password" placeholder="Nhap password...">-->
+<!--    <input type="file" name="avatar">-->
+<!--    <input type="submit" value="upload">-->
+<!--</form>-->
+
+<p style="color: red; margin-top: 40px; font-size: 24px">{{data}} </p>
+<form action="/upload" method="POST" enctype="multipart/form-data"
+      style="display: inline-block; border: black 1px solid; padding: 15px; margin-top: 10px; border-radius: 15px; width: 700px; height: 600px; background: gainsboro">
+
+    <!--    title-->
+    <p class="font-weight-bold" style="font-size: 36px;">SIGN UP</p>
+
+    <!--        username-->
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label"
+               style="margin-top: 30px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Username</label>
+        <div class="col-sm-10" style="margin-left: 120px">
+            <input type="text" class="form-control" name="username" value="{{username}}" required>
+        </div>
+    </div>
+
+    <!--        password-->
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label"
+               style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Password </label>
+
+        <div class="col-sm-10" style="margin-left: 120px">
+            <input type="password" class="form-control" name="password" value="{{password}}" data-toggle="password" id="myInput" required>
+            <i class="fas fa-eye" onclick="myFunction()" style="width: 20px; height: 20px; margin-left: 490px; margin-top: -30px" ></i>
+        </div>
+    </div>
+
+    <!--        address-->
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label"
+               style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Address</label>
+        <div class="col-sm-10" style="margin-left: 120px">
+            <input type="text" class="form-control" name="address" value="{{address}}" required>
+        </div>
+    </div>
+
+    <!--        file-->
+    <div class="file-field input-field" style="margin-top: 40px; margin-left: 20px">
+        <div class="btn grey">
+            <span style="font-weight: bold">Avatar</span>
+            <input name="avatar" type="file" class="form-control-file" multiple required >
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" style=" margin-left: 23px">
+        </div>
+    </div>
+
+
+    <!--    images-->
+    <!--    <div style="border: 1px solid black; padding: 10px; width: 300px; text-align: center; display: inline-block; border-radius: 30px" >-->
+    <!--    <img src="{{images}}" width="230px" height="230px" style="display: inline-block" >-->
+    <!--    </div>-->
+    <!--    <br>-->
+    <!--    <img src="/uploads/d14405e8-f6a8-450f-8669-b9951a707fb5.jpg"/>-->
+
+    <button type="submit" class="btn" style="margin-top: 20px">Submit</button>
+
+</form>
+<script type="text/javascript">
+    function myFunction() {
+        let x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+</script>
+</body>
+</html>
