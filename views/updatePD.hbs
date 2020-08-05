@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>Drinks And More</title>
+</head>
+<body style="background: cadetblue">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: darkcyan">
+    <a class="navbar-brand" methods="get" href="product" style="font-size: 36px; font-weight: bold; color: darkcyan">Drinks
+        And More</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 20px">
+                <a class="nav-link" href="/product">Products</a>
+            </li>
+
+            <li class="nav-item active" style="margin-left: 20px">
+                <a class="nav-link " href="/uploadPD" id="navbarDropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    Upload Products
+                </a>
+
+            </li>
+            <li class="nav-item active" style="margin-left: 20px">
+                <a class="nav-link" href="/qlykhachhang">Users</a>
+            </li>
+            <li class="nav-item active" style="margin-left: 20px">
+                <a class="nav-link " href="/listUser" tabindex="-1" aria-disabled="true">Admin</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search ...." aria-label="Search" required>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<p style="color: darkred; text-align: center; font-size: 24px ; margin-top: 10px">{{status}}</p>
+<form action="/updateSP" method="post" class="container col-10" enctype="multipart/form-data"
+      style="display: inline-block; border: black 1px solid; padding: 15px; margin-top: 5px; border-radius: 15px; width: 600px; height: 830px; background: gainsboro; margin-left: 450px;margin-bottom: 10px ">
+
+    <div class="form-group">
+        <label for="nameSP" style="font-weight: bold">ID</label>
+
+        <input type="text" class="form-control" name="IDSPUD" value="{{id}}" disabled>
+
+    </div>
+    <div class="form-group">
+        <label for="nameSP" style="font-weight: bold">Tên</label>
+
+        <input type="text" class="form-control" name="nameSPUD" value="{{name}}" >
+
+    </div>
+    <div class="form-group">
+        <label for="priceSP" style="font-weight: bold">Giá</label>
+        <input type="text" class="form-control" name="priceSPUD" value="{{price}}" >
+    </div>
+    <div class="form-group">
+        <label for="exImage" style="font-weight: bold">Hình ảnh</label>
+        <div style="text-align: center">
+            <img src="/uploads/images/{{image}}" width="100px" height="100px"
+                 style="display: inline-block; border: 1px solid black; border-radius: 20px">
+        </div>
+        <input type="file" class="form-control-file" name="exImageUD" value="{{image}}">
+    </div>
+    <div class="form-group">
+        <label for="descriptionSP" style="font-weight: bold">Mô tả</label>
+        <input type="text" class="form-control" name="descriptionSPUD" value="{{description}}" style="height: 100px"
+               >
+    </div>
+    <div class="form-group">
+        <label for="typeSP" style="font-weight: bold">Loại</label>
+        <input type="text" class="form-control" name="typeSPUD" value="{{type}}" >
+    </div>
+    <div class="form-group">
+        <label for="slSP" style="font-weight: bold">Số lượng</label>
+        <input type="text" class="form-control" name="slSPUD" value="{{quantity}}" >
+    </div>
+
+
+    <!--            <div style="display: {{status}}" class="alert alert-warning alert-dismissible fade show" role="alert">-->
+    <!--                {{data}}-->
+    <!--                <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+    <!--                    <span aria-hidden="true">&times;</span>-->
+    <!--                </button>-->
+    <!--            </div>-->
+    <div style="text-align: center">
+        <div style="display: inline-block">
+            <button type="submit" name="sm" value="1" class="btn btn-primary" style="margin-right: 30px">Sửa</button>
+            <a type="reset" href="product" class="btn btn-primary" style="background: red; color: aliceblue">Hủy</a>
+        </div>
+    </div>
+</form>
+
+
+<!--    <div style="display: {{status}}" class="alert alert-warning alert-dismissible fade show" role="alert">-->
+<!--        {{data}}-->
+<!--        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--    </div>-->
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

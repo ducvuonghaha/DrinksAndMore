@@ -46,7 +46,57 @@
     </div>
 </nav>
 
-<p style="text-align: center; font-size: 30px">Welcome !!!</p>
+<p style="color: darkred; text-align: center; font-size: 24px ; margin-top: 10px">{{status}}</p>
+<form action="/uploadPD" method="post" class=" container col-10" enctype="multipart/form-data"
+      style="display: inline-block; border: black 1px solid; padding: 15px; margin-top: 5px; border-radius: 15px; width: 600px; height: 650px; background: gainsboro; margin-left: 450px;margin-bottom: 10px ">
+
+    <div class="form-group">
+        <label for="nameSP" style="font-weight: bold">Tên</label>
+        <input type="text" class="form-control" name="nameSP" required>
+    </div>
+    <div class="form-group">
+        <label for="priceSP" style="font-weight: bold">Giá</label>
+        <input type="text" class="form-control" name="priceSP" required>
+    </div>
+    <div class="form-group">
+        <label for="exImage" style="font-weight: bold">Hình ảnh</label>
+        <input type="file" class="form-control-file" name="exImage" required>
+    </div>
+    <div class="form-group">
+        <label for="descriptionSP" style="font-weight: bold">Mô tả</label>
+        <input type="text" class="form-control" name="descriptionSP" style="height: 100px" required>
+    </div>
+    <div class="form-group">
+        <label for="typeSP" style="font-weight: bold">Loại</label>
+        <input type="text" class="form-control" name="typeSP" required>
+    </div>
+    <div class="form-group">
+        <label for="slSP" style="font-weight: bold">Số lượng</label>
+        <input type="text" class="form-control" name="slSP" required>
+    </div>
+
+    <!--            <div style="display: {{status}}" class="alert alert-warning alert-dismissible fade show" role="alert">-->
+    <!--                {{data}}-->
+    <!--                <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+    <!--                    <span aria-hidden="true">&times;</span>-->
+    <!--                </button>-->
+    <!--            </div>-->
+    <div style="text-align: center">
+        <div style="display: inline-block">
+            <button type="submit" name="sm" value="1" class="btn btn-primary" style="margin-right: 30px">Sửa</button>
+            <a type="reset" href="product" class="btn btn-primary" style="background: red; color: aliceblue" >Hủy</a>
+        </div>
+    </div>
+</form>
+
+
+<!--    <div style="display: {{status}}" class="alert alert-warning alert-dismissible fade show" role="alert">-->
+<!--        {{data}}-->
+<!--        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--        </button>-->
+<!--    </div>-->
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

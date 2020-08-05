@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <title>Drinks And More</title>
+</head>
+<body style="background: cadetblue">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: darkcyan">
+    <a class="navbar-brand" methods="get" href="product" style="font-size: 36px; font-weight: bold; color: darkcyan">Drinks
+        And More</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" style="margin-left: 20px">
+                <a class="nav-link" href="/product">Products</a>
+            </li>
+
+            <li class="nav-item active" style="margin-left: 20px">
+                <a class="nav-link " href="/uploadPD" id="navbarDropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    Upload Products
+                </a>
+
+            </li>
+            <li class="nav-item active" style="margin-left: 20px">
+                <a class="nav-link" href="/qlykhachhang">Users</a>
+            </li>
+            <li class="nav-item active" style="margin-left: 20px">
+                <a class="nav-link " href="/listUser" tabindex="-1" aria-disabled="true">Admin</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search ...." aria-label="Search" required>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<p style="color: darkred; text-align: center; font-size: 24px ; margin-top: 40px">{{status}}</p>
+<div class=" container col-10" style="margin-top: 10px; padding: 20px">
+    <div class="row row-cols-1 row-cols-md-3">
+        {{#each data}}
+            <div class="col mb-4">
+                <div class="card" style="border: 1px darkred solid; border-radius: 20px">
+                    <img src="/uploads/images/{{this.image}}" style="border-radius: 20px" class="card-img-top"
+                         width="100px" height="300px"
+                         alt='/uploads/images/{{this.image}}'>
+                    <div class="card-body">
+                        <h5 class="card-title" style="text-align: center; font-weight: bold">{{this.name}}</h5>
+                        <p style="color: red; text-align: center">Giá:  {{this.price}} VNĐ</p>
+
+                        <div class="card-footer" style="border: darkgrey 1px solid;">
+                            <p class="card-text">Mô tả: {{this.description}}</p>
+                            <p class="">Loại:  {{this.type}}</p>
+                            <p>Số lượng: {{this.quantity}}</p>
+                        </div>
+
+                        <div style="margin-top: 20px">
+                            <form action="updatePD" method="get" style="float: left; margin-left: 50px">
+                                <div class="form-group" style="display: none">
+                                    <input type="text" name="idSP" value="{{this._id}}" class="form-control">
+                                    <input type="text" name="imageSP" value="{{this.image}}" class="form-control">
+                                    <input type="text" name="nameSP" value="{{this.name}}" class="form-control">
+                                    <input type="text" name="priceSP" value="{{this.price}}" class="form-control">
+                                    <input type="text" name="descriptionSP" value="{{this.description}}"
+                                           class="form-control">
+                                    <input type="text" name="typeSP" value="{{this.type}}" class="form-control">
+                                    <input type="text" name="slSP" value="{{this.quantity}}" class="form-control">
+                                </div>
+                                <button type="submit" name="update" value="1"
+                                        style="border: none; background: none"><img src="uploads/images/edit.png"
+                                                                                    width="30px" height="30px">
+                                </button>
+                            </form>
+
+
+                            <form action="deletePd" method="get" style="float: right; margin-right: 50px">
+                                <div class="form-group" style="display: none">
+                                    <input type="text" name="idSP" value="{{this._id}}" class="form-control">
+                                </div>
+                                <button type="submit" name="del" value="1" style="border: none; background: none"><img
+                                        src="uploads/images/delete.png" width="30px" height="30px"></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>

@@ -8,6 +8,32 @@ app.use(express.static(path.join(__dirname + '/public')));
 let bp = require('body-parser');
 app.use(bp.urlencoded({extended: false}));
 
+let multer = require('multer');
+
+let storage = multer.diskStorage({
+    destination: function (req, res, cb) {
+        cb(null, './public/uploads/images');
+    },
+    filename(req, file, cb) {
+        cb(null, file.originalname);
+    }
+});
+
+let upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 2 * 1024 * 1024 * 1024 * 1024 * 1024,
+    },
+    fileFilter: (req, file, cb) => {
+        // allow images only
+        if (!file.originalname.match(/\.(png)$/)) {
+            return cb(new Error('chỉ tải được ảnh'), false);
+        }
+        cb(null, true);
+    }
+});
+
+
 let mongoDB = 'mongodb+srv://vuong:meovuong201099@cluster0-rarlv.gcp.mongodb.net/DRINKS';
 
 let db = require('mongoose');
@@ -19,7 +45,10 @@ let collection = "Foods";
 let foods = new Schema({
     name: String,
     price: Number,
-    description: String
+    description: String,
+    type: String,
+    quantity: Number,
+    image: String
 });
 
 db.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -28,62 +57,132 @@ console.log('ket noi mongoDB thanh cong');
 app.engine('.hbs', hbs({
 
     extname: 'hbs',
-    defaultLayout: '',
-    layoutsDir: ''
+    defaultLayout: false,
+    layoutsDir: 'views'
 
 }));
 
 app.set('view engine', '.hbs');
 
-app.post('/', function (req, res) {
+
+app.get('/uploadPD', function (req, res) {
+    res.render('uploadPD');
+})
+
+let file = upload.single("exImage");
+
+app.post('/uploadPD', function (req, res) {
+    file(req, res, async function (err) {
+        if (err) {
+            res.render('uploadPD', {status: err});
+        }
+        let sm = req.body.sm;
+        let nameSP = req.body.nameSP;
+        let priceSP = req.body.priceSP;
+        let descriptionSP = req.body.descriptionSP;
+        let typeSP = req.body.typeSP;
+        let slSP = req.body.slSP;
+        let image = req.file.originalname;
+        let add = db.model(collection, foods, 'Foods');
+
+        if (nameSP && priceSP && descriptionSP && typeSP && image && sm == 1) {
+            let products = await add.find({
+                name: nameSP,
+                price: priceSP,
+                description: descriptionSP,
+                type: typeSP,
+                quantity: slSP,
+                image: image
+            }).lean();   //dk
+            if (products.length <= 0) {
+                let result = add({
+                    name: nameSP,
+                    price: priceSP,
+                    description: descriptionSP,
+                    type: typeSP,
+                    quantity: slSP,
+                    image: image
+                }).save(function (err) {
+                    if (err == null)
+                        res.render('uploadPD', {status: 'Thêm thành công'});
+                    else res.render('uploadPD', {status: err.message});
+                });
+            } else {
+                res.render('uploadPD', {status: 'Sản phẩm đã tồn tại'});
+            }
+        } else {
+            res.render('uploadPD');
+        }
+    })
+});
+
+
+app.get("/updatePD", async function (req, res) {
+    let id = req.query.idSP;
+    let list = db.model(collection, foods, 'Foods');
+    let result = await list.findById(id);
+    console.log(id);
+    res.render('updatePD', {
+        id: result._id,
+        name: result.name,
+        price: result.price,
+        image: result.image,
+        description: result.description,
+        type: result.type,
+        quantity: result.quantity
+    });
 
 });
 
-let model = 'Foods';
+let file2 = upload.single("exImageUD");
+app.post('/updateSP', function (req, res) {
+    file2(req, res, async function (err) {
+        if (err) {
+            res.render('updatePD', {status: err});
+        }
+        let id = req.query.idSP;
+        let name = req.body.nameSPUD;
+        let price = req.body.priceSPUD;
+        let descriptionSP = req.body.descriptionSPUD;
+        let typeSP = req.body.typeSPUD;
+        let slSP = req.body.slSPUD;
+        // let image = req.file.originalname;
+        let update = db.model(collection, foods, 'Foods');
 
-app.get('/add', (req, res) => {
-    let add = db.model(collection, foods, 'Foods');
-    let result = add({
-        name: 'Kẹo Lạc',
-        price: 50000,
-        description: 'Ngon hơn khi ăn cùng trà'
-    }).save(function (err) {
+        console.log(id);
+        let kq = await update.updateOne({_id: id}, {
+            name: name,
+            price: price,
+            description: descriptionSP,
+            type: typeSP,
+            quantity: slSP,
+            // image: image
+        }, function (err) {
+            if (err == null)
+                res.render('updatePD', {status: 'Sửa thành công'});
+            else res.render('updatePD', {status: err.message});
+        });
+    })
+});
+
+
+app.get('/deletePd', (req, res) => {
+    let id = req.query.idSP;
+    let deletee = db.model(collection, foods, 'Foods');
+    let kq = deletee.deleteOne({_id: id}, function (err) {
         if (err == null)
-            res.send('Luu thanh cong, kiem tra DB');
-        else res.send('Luu that bai : ' + err.message);
+            res.render('product', {status: 'Xóa thành công'});
+        else res.render('product', {status: err.message});
     });
 });
 
-app.get('/update', (req, res) => {
-    let id = '5f2a0b347717535bf0a1a4a5';
-    let update = db.model(collection, foods, 'Foods');
-    let kq = update.updateOne({_id: id}, {
-        name: 'Kẹo bông',
-        price: 40000,
-    }, function (err) {
-        if (err == null)
-        res.send('Sua thanh cong, kiem tra DB');
-        else res.send('Sua that bai : ' + err.message)
-    });
-});
-
-app.get('/delete', (req, res) => {
-    let id = '5f2a0b347717535bf0a1a4a5';
-    let update = db.model(collection, foods, 'Foods');
-    let kq = update.deleteOne({_id: id}, function (err) {
-        if (err == null)
-        res.send('Xoa thanh cong, kiem tra lai DB');
-        else res.send('Xoa that bai : ' + err.message);
-    });
-});
-
-app.get('/select', (req, res) => {
+app.get('/product', (req, res) => {
     let list = db.model(collection, foods, 'Foods');
     let result = list.find({}, function (err, data) {
         if (err == null)
-        res.send(data);
+            res.render('product', {data: data});
         else res.send('Lay danh sach that bai : ' + err.message);
-    });
+    }).lean();
 });
 
 
@@ -92,7 +191,12 @@ app.get('/signup', function (req, res) {
 });
 
 app.get('/product', function (req, res) {
-    res.render('product');
+    let list = db.model(collection, foods, 'Foods');
+    let result = list.find({}, function (err, data) {
+        if (err == null)
+            res.render('product', {data: data});
+        else res.send('Lay danh sach that bai : ' + err.message);
+    }).lean();
 });
 
 app.post('/home', function (req, res) {
@@ -101,4 +205,4 @@ app.post('/home', function (req, res) {
 
 app.get('/', function (req, res) {
     res.render('index');
-}).listen(6969);
+}).listen(9696);

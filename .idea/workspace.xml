@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26c03386-4231-463a-9e8a-da8ef9467f3b" name="Default Changelist" comment="" />
+    <list default="true" id="26c03386-4231-463a-9e8a-da8ef9467f3b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/images/edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/updatePD.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/uploadPD.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/116432318_297805684879448_7014802919220812447_n.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/background.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/images/background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/home.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/views/product.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/signup.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/signup.hbs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +30,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1fQjGnWO0Ju67q0m3TDII8Ab5oB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,20 +44,23 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.5.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.0.27" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/AndroidServer/lamntph07140_MOB402_Lab7_Assignment/ass402" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.1.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Asus\WebstormProjects\assignment\views" />
-      <recent name="C:\Users\Asus\WebstormProjects\assignment" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\WebstormProjects\assignment\public\uploads" />
       <recent name="C:\Users\Asus\WebstormProjects\assignment\public" />
       <recent name="C:\Users\Asus\WebstormProjects\assignment\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\WebstormProjects\assignment\public\uploads\images" />
+      <recent name="C:\Users\Asus\WebstormProjects\assignment\views" />
+      <recent name="C:\Users\Asus\WebstormProjects\assignment" />
     </key>
   </component>
   <component name="RunManager">
@@ -57,7 +79,8 @@
       <workItem from="1596157118222" duration="16367000" />
       <workItem from="1596254128208" duration="2381000" />
       <workItem from="1596550849905" duration="4399000" />
-      <workItem from="1596589110350" duration="3730000" />
+      <workItem from="1596589110350" duration="7335000" />
+      <workItem from="1596603257169" duration="28759000" />
     </task>
     <servers />
   </component>
@@ -73,25 +96,41 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1596160854141" />
-    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1596562870730">
+    <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1596664356451">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596562870730" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1596592332386">
+    <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1596664356451" />
+    <state x="644" y="310" key="Github.ShareDialog" timestamp="1596592910449">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596592332386" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1596592332386">
+    <state x="644" y="310" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1596592910449" />
+    <state x="533" y="110" key="Github.UntrackedFilesDialog" timestamp="1596592916014">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596592332386" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1596592332386">
+    <state x="533" y="110" key="Github.UntrackedFilesDialog/0.0.1536.824@0.0.1536.824" timestamp="1596592916014" />
+    <state width="1493" height="103" key="GridCell.Tab.0.bottom" timestamp="1596665872508">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596592332386" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1596592332386">
+    <state width="1493" height="103" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1596665872508" />
+    <state width="1493" height="103" key="GridCell.Tab.0.center" timestamp="1596665872508">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596592332386" />
+    <state width="1493" height="103" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1596665872508" />
+    <state width="1493" height="103" key="GridCell.Tab.0.left" timestamp="1596665872508">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="103" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1596665872508" />
+    <state width="1493" height="103" key="GridCell.Tab.0.right" timestamp="1596665872508">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="103" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1596665872508" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1596657465408">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1596657465408" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1596657684732">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1596657684732" />
   </component>
 </project>
