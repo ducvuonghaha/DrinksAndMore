@@ -64,11 +64,6 @@ app.engine('.hbs', hbs({
 
 app.set('view engine', '.hbs');
 
-
-app.get('/uploadPD', function (req, res) {
-    res.render('uploadPD');
-})
-
 let file = upload.single("exImage");
 
 app.post('/uploadPD', function (req, res) {
@@ -116,6 +111,9 @@ app.post('/uploadPD', function (req, res) {
     })
 });
 
+app.get('/uploadPD', function (req, res) {
+    res.render('uploadPD');
+});
 
 app.get("/updatePD", async function (req, res) {
     let id = req.query.idSP;
@@ -135,18 +133,18 @@ app.get("/updatePD", async function (req, res) {
 });
 
 let file2 = upload.single("exImageUD");
-app.post('/updateSP', function (req, res) {
+app.post('/updatePD', function (req, res) {
     file2(req, res, async function (err) {
         if (err) {
             res.render('updatePD', {status: err});
         }
-        let id = req.query.idSP;
+        let id = '5f2b039068b0ca0d14db8760';
         let name = req.body.nameSPUD;
         let price = req.body.priceSPUD;
         let descriptionSP = req.body.descriptionSPUD;
         let typeSP = req.body.typeSPUD;
         let slSP = req.body.slSPUD;
-        // let image = req.file.originalname;
+        let image = req.file.originalname;
         let update = db.model(collection, foods, 'Foods');
 
         console.log(id);
@@ -156,7 +154,7 @@ app.post('/updateSP', function (req, res) {
             description: descriptionSP,
             type: typeSP,
             quantity: slSP,
-            // image: image
+            image: image
         }, function (err) {
             if (err == null)
                 res.render('updatePD', {status: 'Sửa thành công'});
