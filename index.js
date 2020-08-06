@@ -138,7 +138,7 @@ app.post('/updatePD', function (req, res) {
         if (err) {
             res.render('updatePD', {status: err});
         }
-        let id = '5f2b039068b0ca0d14db8760';
+        let id = req.body.IDSPUD;
         let name = req.body.nameSPUD;
         let price = req.body.priceSPUD;
         let descriptionSP = req.body.descriptionSPUD;
