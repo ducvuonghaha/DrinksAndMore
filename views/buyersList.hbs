@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
-    <title>Drinks And More</title>
+    <title>Quản trị viên</title>
 </head>
 <body style="background: cadetblue">
 
@@ -47,57 +47,86 @@
 </nav>
 
 <p style="color: darkred; text-align: center; font-size: 24px ; margin-top: 40px">{{status}}</p>
-<div class=" container col-10" style="margin-top: 10px; padding: 20px">
-    <div class="row row-cols-1 row-cols-md-3">
+<div class="container rounded-bottom bg-light" style="border: 1px darkred solid; border-radius: 20px; margin-top: 10px">
+    <table class="table container col-10">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Username</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Address</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
         {{#each data}}
-            <div class="col mb-4">
-                <div class="card" style="border: 1px darkred solid; border-radius: 20px">
-                    <img src="/uploads/images/{{this.image}}" style="border-radius: 20px" class="card-img-top"
-                         width="100px" height="300px"
-                         alt='/uploads/images/{{this.image}}'>
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center; font-weight: bold">{{this.name}}</h5>
-                        <p style="color: red; text-align: center">Giá:  {{this.price}} VNĐ</p>
-
-                        <div class="card-footer" style="border: darkgrey 1px solid;">
-                            <p class="card-text">Mô tả: {{this.description}}</p>
-                            <p class="">Loại:  {{this.type}}</p>
-                            <p>Số lượng: {{this.quantity}}</p>
-                        </div>
-
-                        <div style="margin-top: 20px">
-                            <form action="updatePD" method="get" style="float: left; margin-left: 50px">
+            <tr>
+                <th scope="row">{{this._id}}</th>
+                <td name="user">{{this.username}}</td>
+                <td name="name">{{this.name}}</td>
+                <td name="age">{{this.age}}</td>
+                <td name="address">{{this.address}}</td>
+                <td name="address"></td>
+                <td>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <form action="/updateBuyers" method="get">
                                 <div class="form-group" style="display: none">
-                                    <input type="text" name="idSP" value="{{this._id}}" class="form-control">
-                                    <input type="text" name="imageSP" value="{{this.image}}" class="form-control">
-                                    <input type="text" name="nameSP" value="{{this.name}}" class="form-control">
-                                    <input type="text" name="priceSP" value="{{this.price}}" class="form-control">
-                                    <input type="text" name="descriptionSP" value="{{this.description}}"
+                                    <input type="text" name="idB" value="{{this._id}}" class="form-control">
+                                    <input type="text" name="userB" value="{{this.username}}"
                                            class="form-control">
-                                    <input type="text" name="typeSP" value="{{this.type}}" class="form-control">
-                                    <input type="text" name="slSP" value="{{this.quantity}}" class="form-control">
+
+                                    <input type="text" name="nameB" value="{{this.name}}"
+                                           class="form-control">
+
+                                    <input type="text" name="ageB" value="{{this.age}}"
+                                           class="form-control">
+                                    <input type="text" name="addressB" value="{{this.address}}"
+                                           class="form-control">
                                 </div>
-                                <button type="submit" name="update" value="1"
-                                        style="border: none; background: none"><img src="uploads/images/edit.png"
-                                                                                    width="30px" height="30px">
+
+                                <button type="submit" name="update" value="1" class="btn btn-info">Sửa
                                 </button>
+
                             </form>
-
-
-                            <form action="deletePd" method="get" style="float: right; margin-right: 50px">
+                        </div>
+                        <div class="col-sm-5">
+                            <form action="/deleteBuyers" method="get">
                                 <div class="form-group" style="display: none">
-                                    <input type="text" name="idSP" value="{{this._id}}" class="form-control">
+                                    <input type="text" name="idB" value="{{this._id}}" class="form-control">
+
+                                    <input type="text" name="nameB" value="{{this.name}}"
+                                           class="form-control">
+
+                                    <input type="text" name="ageB" value="{{this.age}}"
+                                           class="form-control">
+                                    <input type="text" name="addressB" value="{{this.address}}"
+                                           class="form-control">
                                 </div>
-                                <button type="submit" name="del" value="1" style="border: none; background: none"><img
-                                        src="uploads/images/delete.png" width="30px" height="30px"></button>
+                                <button type="submit" name="del" value="1" class="btn btn-secondary"
+                                        style="margin-left: 5px">Xóa
+                                </button>
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
+
+                </td>
+            </tr>
         {{/each}}
-    </div>
+    </table>
 </div>
+
+<form action="addBuyers" method="get" style="margin-top: 30px">
+    <div class="container">
+        <div class="row justify-content-md-center row-cols-4">
+
+            <button type="submit" style="background: aliceblue; font-weight: bold">Thêm tài khoản</button>
+
+        </div>
+    </div>
+</form>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

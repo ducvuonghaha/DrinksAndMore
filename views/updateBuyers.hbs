@@ -22,19 +22,28 @@
 <!--    <input type="submit" value="upload">-->
 <!--</form>-->
 
-<p style="color: red; font-size: 24px">{{statusUS}}</p>
-<form action="/addUser" method="POST"
-      style="display: inline-block; border: black 1px solid; padding: 15px; margin-top: 10px; border-radius: 15px; width: 800px; height: 720px; background: gainsboro">
+<p style="color: red; font-size: 24px">{{status}}</p>
+<form action="/updateBuyers" method="POST"
+      style="display: inline-block; border: black 1px solid; padding: 15px; margin-top: 10px; border-radius: 15px; width: 850px; height: 1000px; background: gainsboro">
 
     <!--    title-->
-    <p class="font-weight-bold" style="font-size: 36px;">SIGN UP</p>
+    <p class="font-weight-bold" style="font-size: 36px;">Users Details</p>
+
+    <!--        id-->
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label"
+               style="margin-top: 30px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">ID</label>
+        <div class="col-sm-10" style="margin-left: 120px">
+            <input type="text" class="form-control" name="idUDB" value="{{id}}" style="margin-left: 25px" required>
+        </div>
+    </div>
 
     <!--        username-->
     <div class="form-group row">
         <label for="inputEmail3" class="col-sm-2 col-form-label"
-               style="margin-top: 30px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Username</label>
+               style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Username</label>
         <div class="col-sm-10" style="margin-left: 120px">
-            <input type="text" class="form-control" name="usernameSU" value="{{username}}" style="margin-left: 25px" required>
+            <input type="text" class="form-control" name="usernameUDB" value="{{username}}" style="margin-left: 25px" required>
         </div>
     </div>
 
@@ -44,7 +53,7 @@
                style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Password </label>
 
         <div class="col-sm-10" style="margin-left: 120px">
-            <input type="password" class="form-control" name="passwordSU" value="{{password}}" style="margin-left: 25px" data-toggle="password" id="myInput" required>
+            <input type="password" class="form-control" name="passwordUDB" value="{{password}}" style="margin-left: 25px" data-toggle="password" id="myInput" required>
             <i class="fas fa-eye" onclick="myFunction()" style="width: 20px; height: 20px; margin-left: 600px; margin-top: -30px" ></i>
         </div>
     </div>
@@ -55,7 +64,7 @@
                style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Repassword </label>
 
         <div class="col-sm-10" style="margin-left: 120px">
-            <input type="password" class="form-control" name="repasswordSU" value="{{repassword}}" style="margin-left: 25px" data-toggle="password" id="myInput" required>
+            <input type="password" class="form-control" name="repasswordUDB" value="{{repassword}}" style="margin-left: 25px" data-toggle="password" id="myInput" required>
             <i class="fas fa-eye" onclick="myFunction()" style="width: 20px; height: 20px; margin-left: 600px; margin-top: -30px" ></i>
         </div>
     </div>
@@ -66,16 +75,16 @@
         <label for="inputEmail3" class="col-sm-2 col-form-label"
                style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Name</label>
         <div class="col-sm-10" style="margin-left: 120px">
-            <input type="text" class="form-control" name="nameSU" value="{{name}}" style="margin-left: 25px" required>
+            <input type="text" class="form-control" name="nameUDB" value="{{name}}" style="margin-left: 25px" required>
         </div>
     </div>
 
-    <!--        address-->
+    <!--        age-->
     <div class="form-group row">
         <label for="inputEmail3" class="col-sm-2 col-form-label"
-               style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Address</label>
+               style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Age</label>
         <div class="col-sm-10" style="margin-left: 120px">
-            <input type="text" class="form-control" name="addressSU" value="{{address}}" style="margin-left: 25px" required>
+            <input type="text" class="form-control" name="ageUDB" value="{{age}}" style="margin-left: 25px" required>
         </div>
     </div>
 
@@ -84,9 +93,28 @@
         <label for="inputEmail3" class="col-sm-2 col-form-label"
                style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Phone</label>
         <div class="col-sm-10" style="margin-left: 120px">
-            <input type="text" class="form-control" name="phoneSU" value="{{phone}}" style="margin-left: 25px" required>
+            <input type="text" class="form-control" name="phoneUDB" value="{{phone}}" style="margin-left: 25px" required>
         </div>
     </div>
+
+    <!--        email-->
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label"
+               style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Email</label>
+        <div class="col-sm-10" style="margin-left: 120px">
+            <input type="text" class="form-control" name="emailUDB" value="{{email}}" style="margin-left: 25px" required>
+        </div>
+    </div>
+
+    <!--        address-->
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label"
+               style="margin-top: 20px; margin-bottom: -50px; font-size: 24px; color: black; font-weight: bold">Address</label>
+        <div class="col-sm-10" style="margin-left: 120px">
+            <input type="text" class="form-control" name="addressUDB" value="{{address}}" style="margin-left: 25px" required>
+        </div>
+    </div>
+
 
 
 
@@ -97,7 +125,7 @@
     <!--    <br>-->
     <!--    <img src="/uploads/d14405e8-f6a8-450f-8669-b9951a707fb5.jpg"/>-->
 
-    <button type="submit" class="btn" name="btnUser" value="1"  >Submit</button>
+    <button type="submit" class="btn" name="btnBuyers" value="1" >Sửa</button>
 </form>
 
 <script type="text/javascript">
